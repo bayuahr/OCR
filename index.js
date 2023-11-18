@@ -56,13 +56,12 @@ app.post('/file1', (req, res) => {
     // If no image submitted, exit
     if (!image) return res.sendStatus(400);;
 
-    // Move the uploaded image to our upload folder
+    var namedir=__dirname + '/upload/' + image.name
     image.mv(__dirname + '/upload/' + image.name);
     // All good
-
     Tesseract.recognize(
         // this first argument is for the location of an image it can be a //url like below or you can set a local path in your computer
-        'http://localhost:3000/' + image.name,
+        namedir,
         // this second argument is for the laguage 
         'eng', {
             logger: m => console.log(m)
@@ -116,13 +115,12 @@ app.post('/file2', (req, res) => {
     // If no image submitted, exit
     if (!image) return res.sendStatus(400);;
 
-    // Move the uploaded image to our upload folder
+    var namedir=__dirname + '/upload/' + image.name
     image.mv(__dirname + '/upload/' + image.name);
     // All good
-
     Tesseract.recognize(
         // this first argument is for the location of an image it can be a //url like below or you can set a local path in your computer
-        'http://localhost:3000/' + image.name,
+        namedir,
         // this second argument is for the laguage 
         'eng', {
             logger: m => console.log(m)
@@ -192,12 +190,12 @@ app.post('/file3', (req, res) => {
     if (!image) return res.sendStatus(400);;
 
     // Move the uploaded image to our upload folder
+    var namedir=__dirname + '/upload/' + image.name
     image.mv(__dirname + '/upload/' + image.name);
     // All good
-
     Tesseract.recognize(
         // this first argument is for the location of an image it can be a //url like below or you can set a local path in your computer
-        'http://localhost:3000/' + image.name,
+        namedir,
         // this second argument is for the laguage 
         'eng', {
             logger: m => console.log(m)
